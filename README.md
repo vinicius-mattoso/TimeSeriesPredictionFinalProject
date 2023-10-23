@@ -49,14 +49,14 @@ Aqui vamos abordar uma revisão bibliográfica a respeito da previsão de série
 
 Vamos caracterizar a localização da fonte de dados, para isso vamos descrever brevemente as propriedades do VOLVO e falar algumas relações e noções físicas necessárias.
 
-![Alt text](src\static\VOLVO_FIELD.png "Volvo")
+![Alt text](src/static/VOLVO_FIELD.png "Volvo")
 
 
 
 Nesse ponto vamos abordar a disponibilidade de dados existentes:
 
 
-![Alt text](src\static\TimeSeriesAvailable.png "Dataset")
+![Alt text](src/static/TimeSeriesAvailable.png "Dataset")
 
 Descrever brevemente sobre todos os dados, e comentar que vamos utilizar apenas uma parcela de dados devido aos valores faltantes ou constatnes de muitas das séries.
 
@@ -67,18 +67,18 @@ será divida em pré-processamento e arquitetura de modelos
 #### Pré-processamento
 Para uma parte do trabalho de multivariáveis iremos utilizar o seguinte conjunto de séries temporais:
 
-![Alt text](src\static\TimeSeriesUsed.png "Dataset")
+![Alt text](src/static/TimeSeriesUsed.png "Dataset")
 
 
 Vamos separar a base de dados em 80% para treinamento e 20% para dados de teste.
 
-![Alt text](src\static\Split_Train_Test.png "Dataset")
+![Alt text](src/static/Split_Train_Test.png "Dataset")
 
 #### Arquitetura do modelo
 
 ##### Otimização dos hyperparâmetros (Optuna)
 
-![Alt text](src\static\Resumo_do_RMS_train_e_test_coment.png "Dataset")
+![Alt text](src/static/Resumo_do_RMS_train_e_test_coment.png "Dataset")
 
 
 
