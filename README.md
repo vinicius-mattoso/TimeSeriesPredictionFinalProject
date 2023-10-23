@@ -40,6 +40,49 @@ Proin feugiat nulla sem. Phasellus consequat tellus a ex aliquet, quis convallis
 
 Donec molestie, ante quis tempus consequat, mauris ante fringilla elit, euismod hendrerit leo erat et felis. Mauris faucibus odio est, non sagittis urna maximus ut. Suspendisse blandit ligula pellentesque tincidunt malesuada. Sed at ornare ligula, et aliquam dui. Cras a lectus id turpis accumsan pellentesque ut eget metus. Pellentesque rhoncus pellentesque est et viverra. Pellentesque non risus velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
+
+### Introdução <!-- Opcional! Caso não aplicável, remover esta seção -->
+
+<!-- trocar o texto abaixo pelo resumo do trabalho, em inglês -->
+
+Aqui vamos abordar uma revisão bibliográfica a respeito da previsão de séries temporais e sobre a necessidade e importância de conseguirmos prever a produção de óleo.
+
+Vamos caracterizar a localização da fonte de dados, para isso vamos descrever brevemente as propriedades do VOLVO e falar algumas relações e noções físicas necessárias.
+
+![Alt text](src\static\VOLVO_FIELD.png "Volvo")
+
+
+
+Nesse ponto vamos abordar a disponibilidade de dados existentes:
+
+
+![Alt text](src\static\TimeSeriesAvailable.png "Dataset")
+
+Descrever brevemente sobre todos os dados, e comentar que vamos utilizar apenas uma parcela de dados devido aos valores faltantes ou constatnes de muitas das séries.
+
+### Metodologia <!-- Opcional! Caso não aplicável, remover esta seção -->
+
+será divida em pré-processamento e arquitetura de modelos
+
+#### Pré-processamento
+Para uma parte do trabalho de multivariáveis iremos utilizar o seguinte conjunto de séries temporais:
+
+![Alt text](src\static\TimeSeriesUsed.png "Dataset")
+
+
+Vamos separar a base de dados em 80% para treinamento e 20% para dados de teste.
+
+![Alt text](src\static\Split_Train_Test.png "Dataset")
+
+#### Arquitetura do modelo
+
+##### Otimização dos hyperparâmetros (Optuna)
+
+![Alt text](src\static\Resumo_do_RMS_train_e_test_coment.png "Dataset")
+
+
+
+
 ---
 
 Matrícula: 123.456.789
