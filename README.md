@@ -47,11 +47,11 @@ Donec molestie, ante quis tempus consequat, mauris ante fringilla elit, euismod 
 
 De acordo com o relatório fornecido em 2016 pela  British Petroleum (BP) [BP, 2016] o petróleo é uma fonte de energia primária que possui a maior relevância dentre as outras fontes primárias. A figura abaixo é uma adaptação extraida do relatório mencionado e ilustra o percentual que cada fonte primária possuia até o ano da entrega do relatório, destacado pela linha vertical. Além da informação com respeito aos anos anteriores, essa figura apresenta projeções até o ano de 2035, e apesar do declinio do percentual o petróleo ainda irá apresentar grande relevância para o setor energético mundial.
 
-![Alt text](src\static\participacao_fontes_primarias.png "Volvo")
+![Alt text](src/static/participacao_fontes_primarias.png "Volvo")
 
 Além do fato do petróleo ocupar uma grande parcela dentre as fontes de energia primária, o mesmo ainda possui o grande valia no aspecto econômico. O gráfico abaixo foi retirado do site https://www.macrotrends.net e contém o histórico do preço do barrial de óleo desde 1946 até os dias de hoje.
 
-![Alt text](src\static\crude-oil-price-history-chart-2023-10-30-macrotrends.png "Volvo")
+![Alt text](src/static/crude-oil-price-history-chart-2023-10-30-macrotrends.png "Volvo")
 
 Pode-se observar no gráfico acima que o valor do barril foi superior a 40 dolares em grande parte do tempo atingindo uma máxima histórica onde o preço do barril foi de cerca de 200 dolares. 
 
