@@ -2,8 +2,8 @@
 
 # Previsão da produção de Óleo com base em modelos de aprendizado profundo
 
-#### Alun(o/a): [Vinicius Mattoso](https://github.com/vinicius-mattoso).
-#### Orientador(/a/es/as): [Manoela Kohler](https://github.com/manoelakohler)
+#### Aluno: [Vinicius Mattoso](https://github.com/vinicius-mattoso).
+#### Orientadora: [Manoela Kohler](https://github.com/manoelakohler)
 <!-- #### Co-orientador(/a/es/as): [Nome Sobrenome](https://github.com/link_do_github). caso não aplicável, remover esta linha -->
 
 ---
@@ -80,7 +80,9 @@ Vamos separar a base de dados em 80% para treinamento e 20% para dados de teste.
 
 ![Alt text](src/static/Resumo_do_RMS_train_e_test_coment.png "Dataset")
 
+#### Referências
 
+I - [OUTLOOK, BP Energy. 2035. 2015. URL: http://www. bp. com, 2016](https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/energy-outlook/bp-energy-outlook-2016.pdf)
 
 
 ---
