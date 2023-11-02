@@ -2,8 +2,8 @@
 
 # Previsão da produção de Óleo com base em modelos de aprendizado profundo
 
-#### Alun(o/a): [Vinicius Mattoso](https://github.com/vinicius-mattoso).
-#### Orientador(/a/es/as): [Manoela Kohler](https://github.com/manoelakohler)
+#### Aluno: [Vinicius Mattoso](https://github.com/vinicius-mattoso).
+#### Orientadora: [Manoela Kohler](https://github.com/manoelakohler)
 <!-- #### Co-orientador(/a/es/as): [Nome Sobrenome](https://github.com/link_do_github). caso não aplicável, remover esta linha -->
 
 ---
@@ -45,6 +45,24 @@ Donec molestie, ante quis tempus consequat, mauris ante fringilla elit, euismod 
 
 <!-- trocar o texto abaixo pelo resumo do trabalho, em inglês -->
 
+De acordo com o relatório fornecido em 2016 pela  British Petroleum (BP) [BP, 2016] o petróleo é uma fonte de energia primária que possui a maior relevância dentre as outras fontes primárias. A figura abaixo é uma adaptação extraida do relatório mencionado e ilustra o percentual que cada fonte primária possuia até o ano da entrega do relatório, destacado pela linha vertical. Além da informação com respeito aos anos anteriores, essa figura apresenta projeções até o ano de 2035, e apesar do declinio do percentual o petróleo ainda irá apresentar grande relevância para o setor energético mundial.
+
+![Alt text](src/static/participacao_fontes_primarias.png "Volvo")
+
+Além do fato do petróleo ocupar uma grande parcela dentre as fontes de energia primária, o mesmo ainda possui o grande valia no aspecto econômico. O gráfico abaixo foi retirado do site https://www.macrotrends.net e contém o histórico do preço do barrial de óleo desde 1946 até os dias de hoje.
+
+![Alt text](src/static/crude-oil-price-history-chart-2023-10-30-macrotrends.png "Volvo")
+
+Pode-se observar no gráfico acima que o valor do barril foi superior a 40 dolares em grande parte do tempo atingindo uma máxima histórica onde o preço do barril foi de cerca de 200 dolares. 
+
+Diante dos aspectos destacados previamente, pode-se dizer que trabalhos que auxiliem no processo de gestão dos reservatórios petróleo assim como trabalhos que abordam as previsões de demanda e produção possuem grande relevância para a iundustria.
+
+Com o advento de tecninas de inteligência artificial assosiada ao aumento da capacidade de cálculo das máquinas o número de trabalhos e aplicações que são voltadas para essa área da industria cresceram nos ultimos anos. Abaixo temos uma listagem de alguns trabalhos que abordam o uso de inteligência artificial como ferramenta para ajudar a industria de oleo e gás.
+
+LISTAR TRABALHOS QUE PODEM SER UTILIZADOS COMO CITAÇÃO AQUI!!!
+
+Seguindo nessa mesma ótica, esse trabalho visou utilizar técnicas de aprendizado de máquina para fazer estimativas da produção de óleo com base em dados obtidos em campo.
+
 Aqui vamos abordar uma revisão bibliográfica a respeito da previsão de séries temporais e sobre a necessidade e importância de conseguirmos prever a produção de óleo.
 
 Vamos caracterizar a localização da fonte de dados, para isso vamos descrever brevemente as propriedades do VOLVO e falar algumas relações e noções físicas necessárias.
@@ -80,7 +98,9 @@ Vamos separar a base de dados em 80% para treinamento e 20% para dados de teste.
 
 ![Alt text](src/static/Resumo_do_RMS_train_e_test_coment.png "Dataset")
 
+#### Referências
 
+I - [OUTLOOK, BP Energy. 2035. 2015. URL: http://www. bp. com, 2016](https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/energy-outlook/bp-energy-outlook-2016.pdf)
 
 
 ---
