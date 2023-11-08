@@ -24,75 +24,116 @@ Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como
 
 <!-- trocar o texto abaixo pelo resumo do trabalho, em português -->
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar nisl vestibulum tortor fringilla, eget imperdiet neque condimentum. Proin vitae augue in nulla vehicula porttitor sit amet quis sapien. Nam rutrum mollis ligula, et semper justo maximus accumsan. Integer scelerisque egestas arcu, ac laoreet odio aliquet at. Sed sed bibendum dolor. Vestibulum commodo sodales erat, ut placerat nulla vulputate eu. In hac habitasse platea dictumst. Cras interdum bibendum sapien a vehicula.
+Motivados pela grande relevância energética e financeira do petróleo, muitos estudos buscam desenvolver métodos para estimar a produção de óleo, auxiliando no gerenciamento da produção. Com o advento do desenvolvimento de novas arquiteturas e modelos de inteligências artificias, a quantidade de pesquisas que visam aplicar essa tecnologia para dar suporte à produção de oléo, vem aumentando. Com essa perspectiva, esse trabalho utiliza redes neurais recorrentes para estimar a produção de óleo. Para auxiliar o processo de montagem da arquitetura das redes, utilizou-se o recurso do Optuna. Os resultados presentes nesse trabalho mostram que pode-se estimar a produção de óleo fazendo uso de redes neurais recorrentes.  
 
-Proin feugiat nulla sem. Phasellus consequat tellus a ex aliquet, quis convallis turpis blandit. Quisque auctor condimentum justo vitae pulvinar. Donec in dictum purus. Vivamus vitae aliquam ligula, at suscipit ipsum. Quisque in dolor auctor tortor facilisis maximus. Donec dapibus leo sed tincidunt aliquam.
-
-Donec molestie, ante quis tempus consequat, mauris ante fringilla elit, euismod hendrerit leo erat et felis. Mauris faucibus odio est, non sagittis urna maximus ut. Suspendisse blandit ligula pellentesque tincidunt malesuada. Sed at ornare ligula, et aliquam dui. Cras a lectus id turpis accumsan pellentesque ut eget metus. Pellentesque rhoncus pellentesque est et viverra. Pellentesque non risus velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 
 ### Abstract <!-- Opcional! Caso não aplicável, remover esta seção -->
 
 <!-- trocar o texto abaixo pelo resumo do trabalho, em inglês -->
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar nisl vestibulum tortor fringilla, eget imperdiet neque condimentum. Proin vitae augue in nulla vehicula porttitor sit amet quis sapien. Nam rutrum mollis ligula, et semper justo maximus accumsan. Integer scelerisque egestas arcu, ac laoreet odio aliquet at. Sed sed bibendum dolor. Vestibulum commodo sodales erat, ut placerat nulla vulputate eu. In hac habitasse platea dictumst. Cras interdum bibendum sapien a vehicula.
-
-Proin feugiat nulla sem. Phasellus consequat tellus a ex aliquet, quis convallis turpis blandit. Quisque auctor condimentum justo vitae pulvinar. Donec in dictum purus. Vivamus vitae aliquam ligula, at suscipit ipsum. Quisque in dolor auctor tortor facilisis maximus. Donec dapibus leo sed tincidunt aliquam.
-
-Donec molestie, ante quis tempus consequat, mauris ante fringilla elit, euismod hendrerit leo erat et felis. Mauris faucibus odio est, non sagittis urna maximus ut. Suspendisse blandit ligula pellentesque tincidunt malesuada. Sed at ornare ligula, et aliquam dui. Cras a lectus id turpis accumsan pellentesque ut eget metus. Pellentesque rhoncus pellentesque est et viverra. Pellentesque non risus velit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-
+Motivados pela grande relevância energética e financeira do petróleo, muitos trabalhos buscam desenvolver métodos para fazer estimativas da produção de óleo para auxiliar o gerenciamento da produção. Com o advento de novos desenvolvimento de tipos e arquiteturas de inteligêcnias artificias, a quantidade de trabalho que buscam usar esse tipo de tecnologia para dar suporte a produção de oléo vem aumentando. Com essa perspectiva, esse trabalho utiliza redes neurais recorrentes para estimar a produção de óleo, e para auxiliar o processo de montagem da arquitetura das redes foi utilizado o recursos do Optuna. Os resultados presentes nesse trabalho mostram que pode-se estimar a produção de óleo fazendo uso de redes neurais recorrentes.
 
 ### Introdução <!-- Opcional! Caso não aplicável, remover esta seção -->
 
 <!-- trocar o texto abaixo pelo resumo do trabalho, em inglês -->
 
-De acordo com o relatório fornecido em 2016 pela  British Petroleum (BP) [BP, 2016] o petróleo é uma fonte de energia primária que possui a maior relevância dentre as outras fontes primárias. A figura abaixo é uma adaptação extraida do relatório mencionado e ilustra o percentual que cada fonte primária possuia até o ano da entrega do relatório, destacado pela linha vertical. Além da informação com respeito aos anos anteriores, essa figura apresenta projeções até o ano de 2035, e apesar do declinio do percentual o petróleo ainda irá apresentar grande relevância para o setor energético mundial.
+De acordo com o relatório fornecido em 2016 pela  British Petroleum (BP) [BP, 2016], o petróleo é a fonte de energia primária que possui a maior relevância dentre as outras fontes. A figura abaixo é uma adaptação extraída do relatório mencionado e ilustra a evolução percentual da participação que cada fonte possui ao longo do tempo, começando em 1965 e indo até o ano de 2016, representado pela linha vertical cinza. Além das informações com respeito aos anos anteriores, essa figura também apresenta projeções até o ano de 2035 e, apesar do declinio do percentual, o petróleo ainda irá apresentar grande relevância para o setor energético mundial.
 
-![Alt text](src/static/participacao_fontes_primarias.png "Volvo")
+![Alt text](src/static/participacao_fontes_primarias.png "Paricipação das fontes primárias de energia")
 
-Além do fato do petróleo ocupar uma grande parcela dentre as fontes de energia primária, o mesmo ainda possui o grande valia no aspecto econômico. O gráfico abaixo foi retirado do site https://www.macrotrends.net e contém o histórico do preço do barrial de óleo desde 1946 até os dias de hoje.
+Além do petróleo ocupar uma grande parcela dentre as fontes de energia primária, o mesmo ainda possui o grande valia no aspecto econômico. O gráfico abaixo foi retirado do site https://www.macrotrends.net e contém o histórico do preço do barril de óleo desde 1946 até os dias de hoje.
 
 ![Alt text](src/static/crude-oil-price-history-chart-2023-10-30-macrotrends.png "Volvo")
 
-Pode-se observar no gráfico acima que o valor do barril foi superior a 40 dolares em grande parte do tempo atingindo uma máxima histórica onde o preço do barril foi de cerca de 200 dolares. 
+Pode-se observar no gráfico acima que o valor do barril foi superior à 40 dolares em grande parte da série. O barril atingiu uma máxima histórica, onde o preço do mesmo foi de cerca de 200 dolares nos anos de 2008. 
 
-Diante dos aspectos destacados previamente, pode-se dizer que trabalhos que auxiliem no processo de gestão dos reservatórios petróleo assim como trabalhos que abordam as previsões de demanda e produção possuem grande relevância para a iundustria.
+Diante dos aspectos destacados previamente, pode-se dizer que estudos que auxiliam no processo de gestão e gerenciamento dos reservatórios de petróleo, assim como os que abordam as previsões de demanda e produção, possuem grande relevância para a indústria.
 
-Com o advento de tecninas de inteligência artificial assosiada ao aumento da capacidade de cálculo das máquinas o número de trabalhos e aplicações que são voltadas para essa área da industria cresceram nos ultimos anos. Abaixo temos uma listagem de alguns trabalhos que abordam o uso de inteligência artificial como ferramenta para ajudar a industria de oleo e gás.
+Com o advento de técnicas de inteligência artificial associadas e o aumento da capacidade de cálculo das máquinas, o número de trabalhos e aplicações que são voltadas para essa área da indústria cresceu nos últimos anos. Apresenta-se abaixo, uma listagem de alguns estudos que abordam o uso de inteligência artificial como ferramenta para auxiliar a indústria de oleo e gás.
 
-LISTAR TRABALHOS QUE PODEM SER UTILIZADOS COMO CITAÇÃO AQUI!!!
+* Time-series well performance prediction based on Long Short-Term
+Memory (LSTM) neural network model (Song e colaboradores,2020);
 
-Seguindo nessa mesma ótica, esse trabalho visou utilizar técnicas de aprendizado de máquina para fazer estimativas da produção de óleo com base em dados obtidos em campo.
+* Data-driven deep-learning forecasting for oil production and pressure (Werneck e colaboradores, 2022);
 
-Aqui vamos abordar uma revisão bibliográfica a respeito da previsão de séries temporais e sobre a necessidade e importância de conseguirmos prever a produção de óleo.
+* Time series forecasting of petroleum production using deep LSTM
+recurrent networks (Sagheer e Kotb, 2019);
 
-Vamos caracterizar a localização da fonte de dados, para isso vamos descrever brevemente as propriedades do VOLVO e falar algumas relações e noções físicas necessárias.
+* Crude oil price prediction usinf LSTM networks (Gupta e Pandey, 2018).
+
+Seguindo nessa mesma ótica, este trabalho visa utilizar técnicas de aprendizado de máquina afim de estimar a produção de óleo, com base em dados obtidos em campo. Os dados utilizados são séries temporais oriundas de poços produtores de óleo. Devido à informação disponível, o presente trabalho irá utilizar redes neurais recorrentes, que são mais eficazes para essa abordagem.
+
+A organização desse trabalho será feita da seguinte maneira: Apresentação da fonte de dados disponível, seguido da metodologia que será composta pelas informações das redes neurais recorrentes e as técninas de pré-processamento utilizadas. Por fim, serão apresentadas as arquiteturas das redes utilizadas, assim como os resultados e discussões oriundas dos mesmos. 
+
+### Fonte dos dados <!-- Opcional! Caso não aplicável, remover esta seção -->
+
+Os dados utilizados nesse trabalho foram disponibilizados pela empresa Equinor em uma proposta de "Open Science", na qual a empresa disponibilizou dados para pesquisas e desenvolvimento com fins de estudos, inovação e novas soluções energéticas para o futuro. Os dados disponibilizados são aproximadamente 40.000 arquivos oriundos do campo do Volve no mar do Norte. O mapa abaixo ilustra a posição do campo Volvo.
 
 ![Alt text](src/static/VOLVO_FIELD.png "Volvo")
 
 
+Volve é um campo de petróleo que foi descoberto em 1993 e fica localizado na parte central do Mar do Norte. A camada de água existente é de cerca de 80 metros e a profundidade do reservatório varia entre 2700 a 3100 metros.
+Seu plano de operação e desenvolvimento foi aprovado em 2005 e sua produção se iniciou em 2008. Sua produção foi finalizada em 2016 e seus equipamentos foram removidos em 2018.
 
-Nesse ponto vamos abordar a disponibilidade de dados existentes:
-
+Na figura a seguir temos as diferentes séries temporais disponíveis. Os dados possuem uma granularidade de dias.
 
 ![Alt text](src/static/TimeSeriesAvailable.png "Dataset")
 
-Descrever brevemente sobre todos os dados, e comentar que vamos utilizar apenas uma parcela de dados devido aos valores faltantes ou constatnes de muitas das séries.
+Na sequência será apresentada uma tabela com a relação entre o nome da série temporal exibida acima e a informação à ela associada:  
+
+| Série temporal | Informação |
+| -------------- | -----------|
+| ON_STREAM_HRS | Tempo de produção em horas |
+| AVG_DOWNHOLE_PRESSURE | Média da pressão de fundo de poço |
+| AVG_DOWNHOLE_TEMPERATURE | Média da temperatura de fundo de poço |
+| AVG_ANNULUS_PRESSURE | Média da pressão do anular |
+| AVG_WHP_P | Média da pressão na cabeça do poço |
+| AVG_WHT_P | Média da temperatura na cabeça do poço |
+| DP_CHOKE_SIZE | Diferencial de pressão oriundo da abertura do choke |
+| BORE_OIL_VOL | Volume de óleo produzido |
+| BORE_GAS_VOL | Volume de gás produzido |
+| BORE_WAT_VOL | Volume de água produzida |
+
+Devido a presença de muitos dados constantes e/ou  faltantes, para utiliza-los, se fazem necessário tratamentos, visando a melhoria da consistência dos mesmos.
 
 ### Metodologia <!-- Opcional! Caso não aplicável, remover esta seção -->
 
-será divida em pré-processamento e arquitetura de modelos
+Nessa seção será apresentada uma breve explicação das redes neurais recorrentes e, em seguida, serão apresentadas as técnicas de pré-processamento utilizadas nesse trabalho.
+
+#### Redes Neurais Recorrentes (RNNs)
+
+Redes Neurais Recorrentes são um tipo específico de redes neurais que utilizam dados sequênciais ou de séries temporais. Essas redes são recomendadas para trabalhos de previsão numérica de séries temporais, assim como de processamento de linguagem natural. Diferentemente das tradicionais redes convolucionais (CNNs), as RNNs permitem que o processamento dos dados ocorra de maneira sequêncial. A imagem a seguir foi retirada do material do Christopher Olah, 2015, e ilustra uma arquitetura de uma RNNs genérica.
+
+![Alt text](src/static/Redes_Neurais_Recorrentes.png "Redes_Neurais_Recorrentes")
+
+No presente trabalho utilizou-se uma rede neural recorrente específica chamada de Long Short Term Memory (LSTM). As LSTMs foram introduzidas em 1997 por Hochreiter & Schmidhuber e a principal diferença dessa rede é que a mesma possui a capacidade de guardar as informações de celulas anteriores, o estado, por períodos mais longos do que os das tradicionais RNNs. Abaixo temos uma ilustração de uma célula de uma LSTM tembém retirada do trabalho do Christopher Olah, 2015.
+
+![Alt text](src/static/Celula_LSTM.png "LSTM_unit")
 
 #### Pré-processamento
+
+Falar que só será utilizado os dados de produção.
+
 Para uma parte do trabalho de multivariáveis iremos utilizar o seguinte conjunto de séries temporais:
 
 ![Alt text](src/static/TimeSeriesUsed.png "Dataset")
+
+Janelamento dos dados
+
+![Alt text](src/static/Janelamento.png "Dataset")
+
+preparação da base de dados
+
+![Alt text](src/static/Preparcao_base_de_dados.png "Dataset")
 
 
 Vamos separar a base de dados em 80% para treinamento e 20% para dados de teste.
 
 ![Alt text](src/static/Split_Train_Test.png "Dataset")
 
-#### Arquitetura do modelo
+#### Resultados
+
+##### Arquitetura do modelo
 
 ##### Otimização dos hyperparâmetros (Optuna)
 
@@ -102,7 +143,10 @@ Vamos separar a base de dados em 80% para treinamento e 20% para dados de teste.
 
 I - [OUTLOOK, BP Energy. 2035. 2015. URL: http://www. bp. com, 2016](https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/energy-outlook/bp-energy-outlook-2016.pdf)
 
+II - [Hopfield,J J.  Neural networks and physical systems with emergent collective computational abilities. 1982. URL: https://www.pnas.org/doi/10.1073/pnas.79.8.2554](https://www.pnas.org/doi/10.1073/pnas.79.8.2554)
 
+
+III - [OLAH, Christopher. Understanding lstm networks. 2015. URL:https://colah.github.io/posts/2015-08-Understanding-LSTMs/](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 ---
 
 Matrícula: 123.456.789
