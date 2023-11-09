@@ -16,20 +16,7 @@ Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como
 
 Estrutura dos arquivos:
 
-TMESERIESPREDICTIONFINALPROJECT
-│
-├── src
-│    ├── data
-|    ├── static (images)
-│
-├── programas vanillas
-│   
-│
-└── Modelos otimizados com o Optuna
-│
-└── Modelos testes para trabalhar com multivariavel
-│
-└── Modelos testes para trabalhar com diferentes tipos de rede
+![Alt text](src/static/folder_structure.png "Paricipação das fontes primárias de energia")
     
 
 ---
