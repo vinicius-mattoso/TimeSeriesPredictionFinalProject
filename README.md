@@ -24,14 +24,14 @@ Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como
 
 <!-- trocar o texto abaixo pelo resumo do trabalho, em português -->
 
-Motivados pela grande relevância energética e financeira do petróleo, muitos estudos buscam desenvolver métodos para estimar a produção de óleo, auxiliando no gerenciamento da produção. Com o advento do desenvolvimento de novas arquiteturas e modelos de inteligências artificias, a quantidade de pesquisas que visam aplicar essa tecnologia para dar suporte à produção de oléo, vem aumentando. Com essa perspectiva, esse trabalho utiliza redes neurais recorrentes para estimar a produção de óleo. Para auxiliar o processo de montagem da arquitetura das redes, utilizou-se o recurso do Optuna. Os resultados presentes nesse trabalho mostram que pode-se estimar a produção de óleo fazendo uso de redes neurais recorrentes.  
+Motivado pela relevância econômica e energética do petróleo, este estudo visa estimar a produção de óleo, oferecendo suporte ao gerenciamento estratégico na indústria petrolífera. Utilizando redes neurais recorrentes, este trabalho explora as possibilidades desses modelos para previsão e captura de padrões temporais complexos nos dados de produção. Destaca-se a utilização do Optuna, recurso empregado para otimizar a montagem das arquiteturas das redes neurais. Os resultados demonstram a viabilidade das redes neurais recorrentes na estimativa da produção de óleo, indicando uma promissora ferramenta para embasar decisões no setor petrolífero.  
 
 
 ### Abstract <!-- Opcional! Caso não aplicável, remover esta seção -->
 
 <!-- trocar o texto abaixo pelo resumo do trabalho, em inglês -->
 
-Motivados pela grande relevância energética e financeira do petróleo, muitos trabalhos buscam desenvolver métodos para fazer estimativas da produção de óleo para auxiliar o gerenciamento da produção. Com o advento de novos desenvolvimento de tipos e arquiteturas de inteligêcnias artificias, a quantidade de trabalho que buscam usar esse tipo de tecnologia para dar suporte a produção de oléo vem aumentando. Com essa perspectiva, esse trabalho utiliza redes neurais recorrentes para estimar a produção de óleo, e para auxiliar o processo de montagem da arquitetura das redes foi utilizado o recursos do Optuna. Os resultados presentes nesse trabalho mostram que pode-se estimar a produção de óleo fazendo uso de redes neurais recorrentes.
+Motivated by the economic and energy relevance of oil, this study aims to estimate oil production, providing support for strategic management in the oil industry. Using recurrent neural networks, this work explores the capabilities of these models for predicting and capturing complex temporal patterns in production data. Notably, the use of Optuna is highlighted, a resource employed to optimize the assembly of neural network architectures. The results demonstrate the viability of recurrent neural networks in estimating oil production, indicating a promising tool to support decision-making in the oil sector.
 
 ### Introdução <!-- Opcional! Caso não aplicável, remover esta seção -->
 
@@ -51,10 +51,10 @@ Diante dos aspectos destacados previamente, pode-se dizer que estudos que auxili
 
 Com o advento de técnicas de inteligência artificial associadas e o aumento da capacidade de cálculo das máquinas, o número de trabalhos e aplicações que são voltadas para essa área da indústria cresceu nos últimos anos. Apresenta-se abaixo, uma listagem de alguns estudos que abordam o uso de inteligência artificial como ferramenta para auxiliar a indústria de oleo e gás.
 
+* Data-driven deep-learning forecasting for oil production and pressure (Werneck e colaboradores, 2022);
+
 * Time-series well performance prediction based on Long Short-Term
 Memory (LSTM) neural network model (Song e colaboradores,2020);
-
-* Data-driven deep-learning forecasting for oil production and pressure (Werneck e colaboradores, 2022);
 
 * Time series forecasting of petroleum production using deep LSTM
 recurrent networks (Sagheer e Kotb, 2019);
@@ -178,23 +178,37 @@ Neste resultado, observamos que ao aplicar a rede aos dados de testes, as previs
 
 ##### Otimização dos hyperparâmetros (Optuna)
 
+A tabela a seguir apresenta os parâmetros utilizados em cada um dos experimentos realizados, bem como o valor do erro quadrático médio (MSE) para o conjunto de treino e de teste. O experimento 0 refere-se ao modelo 'vanilla' mencionado anteriormente. Por outro lado, o experimento 1 segue a mesma arquitetura, porém com um maior número de épocas de treinamento, com o intuito de investigar o impacto dessa variável na performance da rede.
+
 ![Alt text](src/static/previsoes/Otimizacoes/Tabela_de_otimizacoes.png "Dataset")
 
-![Alt text](src/static/Resumo_do_RMS_train_e_test_coment.png "Dataset")
+Para facilitar o processo de análise de cada modelo foi criado o gráfico abaixo:
+![Alt text](src/static/previsoes/Resultado_comparativo_grafico_dos_modelos_limpo.png "Dataset")
 
+Neste gráfico, os pontos azuis representam o erro quadrático médio dos dados de treino, enquanto os pontos alaranjados representam os resultados para os dados de teste. As linhas tracejadas foram geradas assumindo que a previsão do ponto futuro é sempre o valor do último ponto do conjunto de dados. Resultados mais interessantes são aqueles que exibem um erro menor quando aplicados aos dados de teste em comparação com o valor tracejado. Além disso, bons modelos não necessariamente apresentam erros significativamente menores quando aplicados aos dados de treino, pois um erro muito baixo pode indicar overtraining. Com base nisso, destacam-se os seguintes modelos:
 
+![Alt text](src/static/previsoes/Resultado_comparativo_grafico_dos_modelos.png "Dataset")
 
+Os experimentos 2, 6 e 7 são exemplos de análises que demonstram baixo erro nos dados de teste, juntamente com erros similares nos dados de treino. A seguir, serão apresentados os resultados gráficos de cada um desses experimentos.
+
+##### Experimento 2
+
+##### Experimento 6
+
+##### Experimento 7
 
 
 
 #### Referências
 
-I - [OUTLOOK, BP Energy. 2035. 2015. URL: http://www. bp. com, 2016](https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/energy-outlook/bp-energy-outlook-2016.pdf)
+I - [OUTLOOK, BP Energy. 2035. 2015.](https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/energy-outlook/bp-energy-outlook-2016.pdf)
 
 II - [Hopfield,J J.  Neural networks and physical systems with emergent collective computational abilities. 1982. URL: https://www.pnas.org/doi/10.1073/pnas.79.8.2554](https://www.pnas.org/doi/10.1073/pnas.79.8.2554)
 
 
-III - [OLAH, Christopher. Understanding lstm networks. 2015. URL:https://colah.github.io/posts/2015-08-Understanding-LSTMs/](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+III - [OLAH, Christopher. Understanding lstm networks. 2015. ](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
+IV - [Takuya Akiba, Shotaro Sano, Toshihiko Yanase, Takeru Ohta, and Masanori Koyama. 2019. Optuna: A Next-generation Hyperparameter Optimization Framework. In KDD.](https://optuna.org/)
 
 ---
 
