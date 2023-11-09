@@ -110,7 +110,11 @@ No presente trabalho utilizou-se uma rede neural recorrente específica chamada 
 
 ![Alt text](src/static/Celula_LSTM.png "LSTM_unit")
 
-Breve explicação sobre os gates
+Os portões (gates) representam uma parte fundamental na estrutura de uma LSTM. Esses mecanismos de controle, compostos pelos portões de entrada, esquecimento e saída, têm a função de regular o fluxo de informações ao longo da sequência temporal. O 'portão de entrada' decide quais informações são atualizadas na célula de memória, o 'portão de esquecimento' controla o quanto das informações anteriores deve ser mantido ou descartado, e o 'portão de saída' determina qual parte da informação atualizada na célula de memória será usada para a previsão. Esses mecanismos permitem que a LSTM aprenda e retenha relações temporais complexas nos dados, auxiliando na redução do problema de desvanecimento do gradiente e possibilitando a captura de dependências de longo prazo, tornando-a especialmente eficaz em tarefas de previsão e modelagem de sequências.
+
+![Alt text](src/static/portoes_LSTM.png "LSTM_unit")
+
+
 
 #### Pré-processamento
 
@@ -144,13 +148,44 @@ A figura acima ilustra o processo de segregação dos dados em conjuntos de trei
 
 Nesta seção, apresentamos os resultados obtidos por meio da aplicação de diferentes arquiteturas de redes neurais recorrentes do tipo LSTM para a previsão da produção de óleo. Inicialmente, a primeira tentativa de previsão foi realizada exclusivamente utilizando a série temporal com informações da produção de óleo. À medida que este estudo progrediu, foram conduzidos testes adicionais explorando a previsão com o uso de múltiplas variáveis, embora, até o momento, estes testes estejam em fase inicial. Este trabalho destaca os resultados, tanto das tentativas iniciais que consideraram apenas a série temporal univariada quanto das investigações mais recentes que envolveram a inclusão de múltiplas variáveis para aprimorar as previsões da produção de óleo.
 
-##### Arquitetura do modelo
+##### Arquitetura da Rede Neural
 
-A arquitetura e a escolha dos hiperparâmetros desempenham um papel fundamental na eficácia e no desempenho de uma rede LSTM. A configuração adequada da arquitetura, incluindo o número de camadas LSTM, o tamanho das células de memória, a taxa de aprendizado e outros hiperparâmetros, impacta diretamente a capacidade da rede em aprender e capturar relações temporais complexas nos dados. A seleção cuidadosa desses hiperparâmetros e a arquitetura apropriada são essenciais para otimizar a capacidade da LSTM em modelar padrões temporais, garantindo que o modelo seja capaz de generalizar bem para dados futuros e, portanto, melhorar a qualidade das previsões. Portanto, a compreensão e a otimização desses elementos são cruciais para alcançar um desempenho eficaz e preciso na previsão com redes LSTM.
+A arquitetura e a escolha dos hiperparâmetros são fundamentais para o desempenho eficaz de uma rede LSTM. A configuração adequada, incluindo o número de camadas LSTM, o tamanho das células de memória, a taxa de aprendizado e outros hiperparâmetros, impacta diretamente a capacidade da rede em aprender e capturar relações temporais complexas nos dados. A seleção criteriosa desses parâmetros e a arquitetura apropriada são essenciais para otimizar a capacidade da LSTM em modelar padrões temporais, garantindo uma generalização eficaz para dados futuros e, consequentemente, aprimorando a qualidade das previsões. Portanto, compreender e otimizar esses elementos são cruciais para alcançar um desempenho eficaz e preciso na previsão com redes LSTM.
+
+Neste trabalho, o framework [Optuna](https://optuna.org/) foi utilizado para otimizar os hiperparâmetros da rede. Para comparação, foi criado um modelo 'vanilla', um modelo simples que contém diferentes tipos de camadas que podem estar presentes em uma LSTM. Em seguida, o Optuna foi empregado gradualmente para liberar os hiperparâmetros, fornecendo uma compreensão mais aprofundada das otimizações realizadas.
+
+A figura abaixo apresenta o resultado da rede considerada 'vanilla', seguido pela arquitetura dessa rede:
+
+![Alt text](src/static/previsoes/Modelos_Vanila/300epocas_vanila.png "Dataset")
+
+Código com a arquitetura da rede:
+
+<pre>
+model_LSTM = Sequential()
+model_LSTM.reset_states()
+model_LSTM.add(LSTM(n_neurons, input_shape=(time_steps, input_dim), return_sequences=True))
+model_LSTM.add(LSTM(n_neurons, return_sequences=True))
+model_LSTM.add(Dropout(0.2))
+model_LSTM.add(LSTM(n_neurons, return_sequences=True))
+model_LSTM.add(LSTM(n_neurons, return_sequences=False))
+model_LSTM.add(Dense(output_dim))
+model_LSTM.compile(loss='mean_squared_error', optimizer='adam', metrics=['mean_absolute_error'])
+</pre>
+
+Neste resultado, observamos que ao aplicar a rede aos dados de testes, as previsões exibiram uma série de oscilações acentuadas, caracterizadas por picos intermitentes. Esses picos representam valores atípicos. Além disso, é importante ressaltar que, apesar da boa performance da rede nos dados de teste, é crucial avaliar o risco de overfitting. A aparente precisão das previsões nos dados de teste pode indicar um ajuste excessivo da rede aos dados de treino, o que pode resultar em uma capacidade reduzida de generalização para novos conjuntos de dados. A próxima seção apresentará os resultados das otimizações realizadas, buscando melhorar a capacidade de generalização da rede e reduzir possíveis problemas de overfitting.
+
+
 
 ##### Otimização dos hyperparâmetros (Optuna)
 
+![Alt text](src/static/previsoes/Otimizacoes/Tabela_de_otimizacoes.png "Dataset")
+
 ![Alt text](src/static/Resumo_do_RMS_train_e_test_coment.png "Dataset")
+
+
+
+
+
 
 #### Referências
 
