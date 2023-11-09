@@ -14,13 +14,9 @@ Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como
 
 - [Link para a monografia](https://github.com/vinicius-mattoso/TimeSeriesPredictionFinalProject). <!-- caso não aplicável, remover esta linha -->
 
-<!-- - Trabalhos relacionados: <!-- caso não aplicável, remover estas linhas -->
-    <!-- - [Nome do Trabalho 1](https://link_do_trabalho.com). -->
-    <!-- - [Nome do Trabalho 2](https://link_do_trabalho.com). -->
-
 Estrutura dos arquivos:
-TMESERIESPREDICTIONFINALPROJECT
 
+TMESERIESPREDICTIONFINALPROJECT
 │
 ├── src
 │    ├── data
