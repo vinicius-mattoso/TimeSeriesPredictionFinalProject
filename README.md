@@ -110,30 +110,43 @@ No presente trabalho utilizou-se uma rede neural recorrente específica chamada 
 
 ![Alt text](src/static/Celula_LSTM.png "LSTM_unit")
 
+Breve explicação sobre os gates
+
 #### Pré-processamento
 
-Falar que só será utilizado os dados de produção.
-
-Para uma parte do trabalho de multivariáveis iremos utilizar o seguinte conjunto de séries temporais:
+Uma das técnicas de pré-processamento possíveis quando há valores ausentes no conjunto de dados é a exclusão das linhas correspondentes. No entanto, ao analisar as informações do AVG_ANNULUS_PRESSURE, percebe-se que a exclusão resultaria na remoção quase total do dataset. Para evitar essa perda substancial de dados, optou-se por uma abordagem de segmentação, restringindo os dados a séries temporais específicas:
 
 ![Alt text](src/static/TimeSeriesUsed.png "Dataset")
 
-Janelamento dos dados
+Após a segmentação das séries temporais a serem utilizadas neste estudo, foi aplicada a técnicas de remoção de dados para lidar com valores ausentes, caso houvesse alguma lacuna entre as variáveis no mesmo instante de tempo. Uma segunda abordagem envolveu a preparação do conjunto de dados por meio da formação de janelas.
+
+
+A formação de janelas de dados é uma técnica na qual os dados de entrada para a rede neural e os valores-alvo para previsão são separados. A figura abaixo ilustra esse processo: 
 
 ![Alt text](src/static/Janelamento.png "Dataset")
 
-preparação da base de dados
+A janela de entrada compreende três pontos temporais anteriores utilizados como dados de entrada para a rede neural, enquanto o valor-alvo é representado em vermelho. Com base nesse valor-alvo, é possível realizar análises métricas para avaliar a eficácia da rede. O esquema a seguir ilustra como o conjunto de dados é organizado após o processo de janelamento. Observa-se que os valores previstos não são usados como entrada para a previsão de passos futuros; em vez disso, a previsão é feita considerando apenas um ponto no futuro.
 
 ![Alt text](src/static/Preparcao_base_de_dados.png "Dataset")
 
+A utilização do MinMaxScaler, como a terceira técnica de pré-processamento, desempenha um papel fundamental na normalização dos dados, seguindo a segmentação das séries temporais e a aplicação de janelamento. O MinMaxScaler permite a transformação dos valores do conjunto de dados para um intervalo predefinido, comumente entre 0 e 1, preservando a distribuição dos dados e minimizando diferenças de escala entre as variáveis. Esta técnica é vital para garantir uma uniformidade na escala das variáveis, favorecendo algoritmos sensíveis à variação de escala. Abaixo é apresentada a equação de normalização empregada.
 
-Vamos separar a base de dados em 80% para treinamento e 20% para dados de teste.
 
-![Alt text](src/static/Split_Train_Test.png "Dataset")
+![Alt text](src/static/minMaxScaler.png "Dataset")
+
+Por fim, além do MinMaxScaler, a etapa subsequente envolve a segregação dos dados em conjuntos de treino e teste. Essa divisão é essencial para avaliar o desempenho do modelo, treinando-o com 80% dos dados e reservando os últimos 20% para testar a capacidade de generalização do modelo para novos dados não vistos durante o treinamento, mantendo a ordem temporal.
+
+![Alt text](src/static/Split_Train_Test_normalizados.png "Dataset")
+
+A figura acima ilustra o processo de segregação dos dados em conjuntos de treino e teste, utilizando o MinMaxScaler para normalização e seguindo a ordem temporal. Nessa representação, os dados empregados no conjunto de teste estão destacados em azul, enquanto os dados de treino são marcados em preto. O ponto de corte entre os dados de treino e teste é claramente indicado por uma linha tracejada vermelha. Essa demarcação temporal é essencial para preservar a sequência cronológica dos dados e garantir que o modelo seja avaliado em dados não vistos e futuros.
 
 #### Resultados
 
+Nesta seção, apresentamos os resultados obtidos por meio da aplicação de diferentes arquiteturas de redes neurais recorrentes do tipo LSTM para a previsão da produção de óleo. Inicialmente, a primeira tentativa de previsão foi realizada exclusivamente utilizando a série temporal com informações da produção de óleo. À medida que este estudo progrediu, foram conduzidos testes adicionais explorando a previsão com o uso de múltiplas variáveis, embora, até o momento, estes testes estejam em fase inicial. Este trabalho destaca os resultados, tanto das tentativas iniciais que consideraram apenas a série temporal univariada quanto das investigações mais recentes que envolveram a inclusão de múltiplas variáveis para aprimorar as previsões da produção de óleo.
+
 ##### Arquitetura do modelo
+
+A arquitetura e a escolha dos hiperparâmetros desempenham um papel fundamental na eficácia e no desempenho de uma rede LSTM. A configuração adequada da arquitetura, incluindo o número de camadas LSTM, o tamanho das células de memória, a taxa de aprendizado e outros hiperparâmetros, impacta diretamente a capacidade da rede em aprender e capturar relações temporais complexas nos dados. A seleção cuidadosa desses hiperparâmetros e a arquitetura apropriada são essenciais para otimizar a capacidade da LSTM em modelar padrões temporais, garantindo que o modelo seja capaz de generalizar bem para dados futuros e, portanto, melhorar a qualidade das previsões. Portanto, a compreensão e a otimização desses elementos são cruciais para alcançar um desempenho eficaz e preciso na previsão com redes LSTM.
 
 ##### Otimização dos hyperparâmetros (Optuna)
 
@@ -147,6 +160,7 @@ II - [Hopfield,J J.  Neural networks and physical systems with emergent collecti
 
 
 III - [OLAH, Christopher. Understanding lstm networks. 2015. URL:https://colah.github.io/posts/2015-08-Understanding-LSTMs/](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
 ---
 
 Matrícula: 123.456.789
