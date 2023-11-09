@@ -10,13 +10,31 @@
 
 Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como pré-requisito para conclusão de curso e obtenção de crédito na disciplina "Projetos de Sistemas Inteligentes de Apoio à Decisão".
 
-- [Link para o código](https://github.com/link_do_repositorio/nome_do_arquivo_de_codigo). <!-- caso não aplicável, remover esta linha -->
+- [Link para o código](https://github.com/vinicius-mattoso/TimeSeriesPredictionFinalProject). <!-- caso não aplicável, remover esta linha -->
 
-- [Link para a monografia](https://link_da_monografia.com). <!-- caso não aplicável, remover esta linha -->
+- [Link para a monografia](https://github.com/vinicius-mattoso/TimeSeriesPredictionFinalProject). <!-- caso não aplicável, remover esta linha -->
 
-- Trabalhos relacionados: <!-- caso não aplicável, remover estas linhas -->
-    - [Nome do Trabalho 1](https://link_do_trabalho.com).
-    - [Nome do Trabalho 2](https://link_do_trabalho.com).
+<!-- - Trabalhos relacionados: <!-- caso não aplicável, remover estas linhas -->
+    <!-- - [Nome do Trabalho 1](https://link_do_trabalho.com). -->
+    <!-- - [Nome do Trabalho 2](https://link_do_trabalho.com). -->
+
+Estrutura dos arquivos:
+TMESERIESPREDICTIONFINALPROJECT
+
+│
+├── src
+│    ├── data
+|    ├── static (images)
+│
+├── programas vanillas
+│   
+│
+└── Modelos otimizados com o Optuna
+│
+└── Modelos testes para trabalhar com multivariavel
+│
+└── Modelos testes para trabalhar com diferentes tipos de rede
+    
 
 ---
 
@@ -182,22 +200,45 @@ A tabela a seguir apresenta os parâmetros utilizados em cada um dos experimento
 
 ![Alt text](src/static/previsoes/Otimizacoes/Tabela_de_otimizacoes.png "Dataset")
 
-Para facilitar o processo de análise de cada modelo foi criado o gráfico abaixo:
+Para facilitar o processo de análise de cada modelo, foi criado o gráfico abaixo. Neste gráfico, os pontos azuis representam o erro quadrático médio dos dados de treino, enquanto os pontos alaranjados representam os resultados para os dados de teste. As linhas tracejadas foram geradas assumindo que a previsão do ponto futuro é sempre o valor do último ponto do conjunto de dados. Resultados mais interessantes são aqueles que exibem um erro menor quando aplicados aos dados de teste em comparação com o valor tracejado. Além disso, bons modelos não necessariamente apresentam erros significativamente menores quando aplicados aos dados de treino, pois um erro muito baixo pode indicar overtraining. 
+
 ![Alt text](src/static/previsoes/Resultado_comparativo_grafico_dos_modelos_limpo.png "Dataset")
 
-Neste gráfico, os pontos azuis representam o erro quadrático médio dos dados de treino, enquanto os pontos alaranjados representam os resultados para os dados de teste. As linhas tracejadas foram geradas assumindo que a previsão do ponto futuro é sempre o valor do último ponto do conjunto de dados. Resultados mais interessantes são aqueles que exibem um erro menor quando aplicados aos dados de teste em comparação com o valor tracejado. Além disso, bons modelos não necessariamente apresentam erros significativamente menores quando aplicados aos dados de treino, pois um erro muito baixo pode indicar overtraining. Com base nisso, destacam-se os seguintes modelos:
+Com base nisso, destacam-se os seguintes modelos:
 
 ![Alt text](src/static/previsoes/Resultado_comparativo_grafico_dos_modelos.png "Dataset")
 
 Os experimentos 2, 6 e 7 são exemplos de análises que demonstram baixo erro nos dados de teste, juntamente com erros similares nos dados de treino. A seguir, serão apresentados os resultados gráficos de cada um desses experimentos.
 
 ##### Experimento 2
+Arquitetura da rede:
+
+| Experimento | Tamanho do Janelamento | Num Neurônios | Num Camadas | Épocas de Treinamento | Taxa de Aprendizado | Possui Dropout | Taxa do Dropout | Utilizou OPTUNA | Tamanho do Batch |
+|-------------|------------------------|---------------|-------------|-----------------------|---------------------|----------------|-----------------|-----------------|------------------|
+| 2 | 14 | 50 | 2 | 300 | 0.0001 | Não | 0.0 | Sim | 1 |
+
+
+![Alt text](src/static/previsoes/Otimizacoes/Optuna_num_layer.png "Dataset")
 
 ##### Experimento 6
 
+Arquitetura da rede:
+
+| Experimento | Tamanho do Janelamento | Num Neurônios | Num Camadas | Épocas de Treinamento | Taxa de Aprendizado | Possui Dropout | Taxa do Dropout | Utilizou OPTUNA | Tamanho do Batch |
+|-------------|------------------------|---------------|-------------|-----------------------|---------------------|----------------|-----------------|-----------------|------------------|
+| 6 | 7 | 249 | 2 | 500 | 0.00025038 | Não | 0.0 | Sim | 7 |
+
+![Alt text](src/static/previsoes/Otimizacoes/Optuna_num_layer_Units_learning_window.png "Dataset")
+
 ##### Experimento 7
 
+Arquitetura da rede:
 
+| Experimento | Tamanho do Janelamento | Num Neurônios | Num Camadas | Épocas de Treinamento | Taxa de Aprendizado | Possui Dropout | Taxa do Dropout | Utilizou OPTUNA | Tamanho do Batch |
+|-------------|------------------------|---------------|-------------|-----------------------|---------------------|----------------|-----------------|-----------------|------------------|
+| 7 | 24 | 250 | 2 | 500 | 0.00015406 | Sim | 0.11099 | Sim | 24 |
+
+![Alt text](src/static/previsoes/Otimizacoes/Optuna_num_layer_Units_learning_window_dropout_500epocas.png "Dataset")
 
 #### Referências
 
