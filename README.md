@@ -223,6 +223,30 @@ Arquitetura da rede:
 
 ![Alt text](src/static/previsoes/Otimizacoes/Optuna_num_layer_Units_learning_window_dropout_500epocas.png "Dataset")
 
+#### Conclusões
+
+Com base nos resultados apresentados nesse trabalho pode-se concluir que:
+
+* Modelos de LSTM são capazes de prever o comportamento da curva de produção de óleo;
+
+* A escolha correta dos hiperparâmetros da LSTM é fundamental para se obter um bom ajuste nas previsões;
+
+* O Optuna pode ser utilizado para auxiliar o processo de otimização dos hiperparâmetros;
+
+* Não necessáriamente redes com mais camadas são redes mais eficientes.
+
+#### Próximos passos
+
+Como futuras contribuições esse trabalho indica:
+
+* Fazer uma análise das outras séries de dados presentes no dataset a fim de introduzir outras séries para auxiliar as previsões;
+
+* Fazer uma análise comparativa entre outros tipo de rede neurais recursivas a fim de entender qual rede consegue prever com mais eficiência a serie de produção;
+
+* Fazer a análise das diferentes redes considerando outras séries temporais no processo;
+
+* Tentar prever outras variáveis, tais como a produção de gás e a produção de água.
+
 #### Referências
 
 I - [OUTLOOK, BP Energy. 2035. 2015.](https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/energy-outlook/bp-energy-outlook-2016.pdf)
