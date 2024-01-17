@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- antes de enviar a versão final, solicitamos que todos os comentários, colocados para orientação ao aluno, sejam removidos do arquivo -->
+<h1 id="previs%C3%A3o-da-produ%C3%A7%C3%A3o-de-%C3%B3leo-com-base-em-modelos-de-aprendizado-profundo">Previsão da produção de Óleo com base em modelos de aprendizado profundo</h1>
+<h4 id="aluno-vinicius-mattoso">Aluno: <a href="https://github.com/vinicius-mattoso">Vinicius Mattoso</a>.</h4>
+<h4 id="orientadora-manoela-kohler">Orientadora: <a href="https://github.com/manoelakohler">Manoela Kohler</a></h4>
+<!-- #### Co-orientador(/a/es/as): [Nome Sobrenome](https://github.com/link_do_github). caso não aplicável, remover esta linha -->
+<hr>
+<p>Trabalho apresentado ao curso <a href="https://ica.puc-rio.ai/bi-master">BI MASTER</a> como pré-requisito para conclusão de curso e obtenção de crédito na disciplina &quot;Projetos de Sistemas Inteligentes de Apoio à Decisão&quot;.</p>
+<ul>
+<li>
+<p><a href="https://github.com/vinicius-mattoso/TimeSeriesPredictionFinalProject">Link para o código</a>. <!-- caso não aplicável, remover esta linha --></p>
+</li>
+<li>
+<p><a href="https://github.com/vinicius-mattoso/TimeSeriesPredictionFinalProject">Link para a monografia</a>. <!-- caso não aplicável, remover esta linha --></p>
+</li>
+</ul>
+<p>Estrutura dos arquivos:</p>
+<p><img src="src/static/folder_structure.png" alt="Alt text" title="Paricipação das fontes primárias de energia"></p>
+<hr>
+<h3 id="resumo">Resumo</h3>
+<!-- trocar o texto abaixo pelo resumo do trabalho, em português -->
+<p>Motivado pela relevância econômica e energética do petróleo, este estudo visa estimar a produção de óleo, oferecendo suporte ao gerenciamento estratégico na indústria petrolífera. Utilizando redes neurais recorrentes, este trabalho explora as possibilidades desses modelos para previsão e captura de padrões temporais complexos nos dados de produção. Destaca-se a utilização do Optuna, recurso empregado para otimizar a montagem das arquiteturas das redes neurais. Os resultados demonstram a viabilidade das redes neurais recorrentes na estimativa da produção de óleo, indicando uma promissora ferramenta para embasar decisões no setor petrolífero.</p>
+<h3 id="abstract----opcional-caso-n%C3%A3o-aplic%C3%A1vel-remover-esta-se%C3%A7%C3%A3o">Abstract <!-- Opcional! Caso não aplicável, remover esta seção --></h3>
+<!-- trocar o texto abaixo pelo resumo do trabalho, em inglês -->
+<p>Motivated by the economic and energy relevance of oil, this study aims to estimate oil production, providing support for strategic management in the oil industry. Using recurrent neural networks, this work explores the capabilities of these models for predicting and capturing complex temporal patterns in production data. Notably, the use of Optuna is highlighted, a resource employed to optimize the assembly of neural network architectures. The results demonstrate the viability of recurrent neural networks in estimating oil production, indicating a promising tool to support decision-making in the oil sector.</p>
+<h3 id="introdu%C3%A7%C3%A3o----opcional-caso-n%C3%A3o-aplic%C3%A1vel-remover-esta-se%C3%A7%C3%A3o">Introdução <!-- Opcional! Caso não aplicável, remover esta seção --></h3>
+<!-- trocar o texto abaixo pelo resumo do trabalho, em inglês -->
+<p>De acordo com o relatório fornecido em 2016 pela  British Petroleum (BP) [BP, 2016], o petróleo é a fonte de energia primária que possui a maior relevância dentre as outras fontes. A figura abaixo é uma adaptação extraída do relatório mencionado e ilustra a evolução percentual da participação que cada fonte possui ao longo do tempo, começando em 1965 e indo até o ano de 2016, representado pela linha vertical cinza. Além das informações com respeito aos anos anteriores, essa figura também apresenta projeções até o ano de 2035 e, apesar do declinio do percentual, o petróleo ainda irá apresentar grande relevância para o setor energético mundial.</p>
+<p><img src="src/static/participacao_fontes_primarias.png" alt="Alt text" title="Paricipação das fontes primárias de energia"></p>
+<p>Além do petróleo ocupar uma grande parcela dentre as fontes de energia primária, o mesmo ainda possui o grande valia no aspecto econômico. O gráfico abaixo foi retirado do site https://www.macrotrends.net e contém o histórico do preço do barril de óleo desde 1946 até os dias de hoje.</p>
+<p><img src="src/static/crude-oil-price-history-chart-2023-10-30-macrotrends.png" alt="Alt text" title="Volvo"></p>
+<p>Pode-se observar no gráfico acima que o valor do barril foi superior à 40 dolares em grande parte da série. O barril atingiu uma máxima histórica, onde o preço do mesmo foi de cerca de 200 dolares nos anos de 2008.</p>
+<p>Diante dos aspectos destacados previamente, pode-se dizer que estudos que auxiliam no processo de gestão e gerenciamento dos reservatórios de petróleo, assim como os que abordam as previsões de demanda e produção, possuem grande relevância para a indústria.</p>
+<p>Com o advento de técnicas de inteligência artificial associadas e o aumento da capacidade de cálculo das máquinas, o número de trabalhos e aplicações que são voltadas para essa área da indústria cresceu nos últimos anos. Apresenta-se abaixo, uma listagem de alguns estudos que abordam o uso de inteligência artificial como ferramenta para auxiliar a indústria de oleo e gás.</p>
+<ul>
+<li>
+<p>Data-driven deep-learning forecasting for oil production and pressure (Werneck e colaboradores, 2022);</p>
+</li>
+<li>
+<p>Time-series well performance prediction based on Long Short-Term
+Memory (LSTM) neural network model (Song e colaboradores,2020);</p>
+</li>
+<li>
+<p>Time series forecasting of petroleum production using deep LSTM
+recurrent networks (Sagheer e Kotb, 2019);</p>
+</li>
+<li>
+<p>Crude oil price prediction usinf LSTM networks (Gupta e Pandey, 2018).</p>
+</li>
+</ul>
+<p>Seguindo nessa mesma ótica, este trabalho visa utilizar técnicas de aprendizado de máquina afim de estimar a produção de óleo, com base em dados obtidos em campo. Os dados utilizados são séries temporais oriundas de poços produtores de óleo. Devido à informação disponível, o presente trabalho irá utilizar redes neurais recorrentes, que são mais eficazes para essa abordagem.</p>
+<p>A organização desse trabalho será feita da seguinte maneira: Apresentação da fonte de dados disponível, seguido da metodologia que será composta pelas informações das redes neurais recorrentes e as técninas de pré-processamento utilizadas. Por fim, serão apresentadas as arquiteturas das redes utilizadas, assim como os resultados e discussões oriundas dos mesmos.</p>
+<h3 id="fonte-dos-dados----opcional-caso-n%C3%A3o-aplic%C3%A1vel-remover-esta-se%C3%A7%C3%A3o">Fonte dos dados <!-- Opcional! Caso não aplicável, remover esta seção --></h3>
+<p>Os dados utilizados nesse trabalho foram disponibilizados pela empresa Equinor em uma proposta de &quot;Open Science&quot;, na qual a empresa disponibilizou dados para pesquisas e desenvolvimento com fins de estudos, inovação e novas soluções energéticas para o futuro. Os dados disponibilizados são aproximadamente 40.000 arquivos oriundos do campo do Volve no mar do Norte. O mapa abaixo ilustra a posição do campo Volvo.</p>
+<p><img src="src/static/VOLVO_FIELD.png" alt="Alt text" title="Volvo"></p>
+<p>Volve é um campo de petróleo que foi descoberto em 1993 e fica localizado na parte central do Mar do Norte. A camada de água existente é de cerca de 80 metros e a profundidade do reservatório varia entre 2700 a 3100 metros.
+Seu plano de operação e desenvolvimento foi aprovado em 2005 e sua produção se iniciou em 2008. Sua produção foi finalizada em 2016 e seus equipamentos foram removidos em 2018.</p>
+<p>Na figura a seguir temos as diferentes séries temporais disponíveis. Os dados possuem uma granularidade de dias.</p>
+<p><img src="src/static/TimeSeriesAvailable.png" alt="Alt text" title="Dataset"></p>
+<p>Na sequência será apresentada uma tabela com a relação entre o nome da série temporal exibida acima e a informação à ela associada:</p>
+<table>
+<thead>
+<tr>
+<th>Série temporal</th>
+<th>Informação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ON_STREAM_HRS</td>
+<td>Tempo de produção em horas</td>
+</tr>
+<tr>
+<td>AVG_DOWNHOLE_PRESSURE</td>
+<td>Média da pressão de fundo de poço</td>
+</tr>
+<tr>
+<td>AVG_DOWNHOLE_TEMPERATURE</td>
+<td>Média da temperatura de fundo de poço</td>
+</tr>
+<tr>
+<td>AVG_ANNULUS_PRESSURE</td>
+<td>Média da pressão do anular</td>
+</tr>
+<tr>
+<td>AVG_WHP_P</td>
+<td>Média da pressão na cabeça do poço</td>
+</tr>
+<tr>
+<td>AVG_WHT_P</td>
+<td>Média da temperatura na cabeça do poço</td>
+</tr>
+<tr>
+<td>DP_CHOKE_SIZE</td>
+<td>Diferencial de pressão oriundo da abertura do choke</td>
+</tr>
+<tr>
+<td>BORE_OIL_VOL</td>
+<td>Volume de óleo produzido</td>
+</tr>
+<tr>
+<td>BORE_GAS_VOL</td>
+<td>Volume de gás produzido</td>
+</tr>
+<tr>
+<td>BORE_WAT_VOL</td>
+<td>Volume de água produzida</td>
+</tr>
+</tbody>
+</table>
+<p>Devido a presença de muitos dados constantes e/ou  faltantes, para utiliza-los, se fazem necessário tratamentos, visando a melhoria da consistência dos mesmos.</p>
+<h3 id="metodologia----opcional-caso-n%C3%A3o-aplic%C3%A1vel-remover-esta-se%C3%A7%C3%A3o">Metodologia <!-- Opcional! Caso não aplicável, remover esta seção --></h3>
+<p>Nessa seção será apresentada uma breve explicação das redes neurais recorrentes e, em seguida, serão apresentadas as técnicas de pré-processamento utilizadas nesse trabalho.</p>
+<h4 id="redes-neurais-recorrentes-rnns">Redes Neurais Recorrentes (RNNs)</h4>
+<p>Redes Neurais Recorrentes são um tipo específico de redes neurais que utilizam dados sequênciais ou de séries temporais. Essas redes são recomendadas para trabalhos de previsão numérica de séries temporais, assim como de processamento de linguagem natural. Diferentemente das tradicionais redes convolucionais (CNNs), as RNNs permitem que o processamento dos dados ocorra de maneira sequêncial. A imagem a seguir foi retirada do material do Christopher Olah, 2015, e ilustra uma arquitetura de uma RNNs genérica.</p>
+<p><img src="src/static/Redes_Neurais_Recorrentes.png" alt="Alt text" title="Redes_Neurais_Recorrentes"></p>
+<p>No presente trabalho utilizou-se uma rede neural recorrente específica chamada de Long Short Term Memory (LSTM). As LSTMs foram introduzidas em 1997 por Hochreiter &amp; Schmidhuber e a principal diferença dessa rede é que a mesma possui a capacidade de guardar as informações de celulas anteriores, o estado, por períodos mais longos do que os das tradicionais RNNs. Abaixo temos uma ilustração de uma célula de uma LSTM tembém retirada do trabalho do Christopher Olah, 2015.</p>
+<p><img src="src/static/Celula_LSTM.png" alt="Alt text" title="LSTM_unit"></p>
+<p>Os portões (gates) representam uma parte fundamental na estrutura de uma LSTM. Esses mecanismos de controle, compostos pelos portões de entrada, esquecimento e saída, têm a função de regular o fluxo de informações ao longo da sequência temporal. O 'portão de entrada' decide quais informações são atualizadas na célula de memória, o 'portão de esquecimento' controla o quanto das informações anteriores deve ser mantido ou descartado, e o 'portão de saída' determina qual parte da informação atualizada na célula de memória será usada para a previsão. Esses mecanismos permitem que a LSTM aprenda e retenha relações temporais complexas nos dados, auxiliando na redução do problema de desvanecimento do gradiente e possibilitando a captura de dependências de longo prazo, tornando-a especialmente eficaz em tarefas de previsão e modelagem de sequências.</p>
+<p><img src="src/static/portoes_LSTM.png" alt="Alt text" title="LSTM_unit"></p>
+<h4 id="pr%C3%A9-processamento">Pré-processamento</h4>
+<p>Uma das técnicas de pré-processamento possíveis quando há valores ausentes no conjunto de dados é a exclusão das linhas correspondentes. No entanto, ao analisar as informações do AVG_ANNULUS_PRESSURE, percebe-se que a exclusão resultaria na remoção quase total do dataset. Para evitar essa perda substancial de dados, optou-se por uma abordagem de segmentação, restringindo os dados a séries temporais específicas:</p>
+<p><img src="src/static/TimeSeriesUsed.png" alt="Alt text" title="Dataset"></p>
+<p>Após a segmentação das séries temporais a serem utilizadas neste estudo, foi aplicada a técnicas de remoção de dados para lidar com valores ausentes, caso houvesse alguma lacuna entre as variáveis no mesmo instante de tempo. Uma segunda abordagem envolveu a preparação do conjunto de dados por meio da formação de janelas.</p>
+<p>A formação de janelas de dados é uma técnica na qual os dados de entrada para a rede neural e os valores-alvo para previsão são separados. A figura abaixo ilustra esse processo:</p>
+<p><img src="src/static/Janelamento.png" alt="Alt text" title="Dataset"></p>
+<p>A janela de entrada compreende três pontos temporais anteriores utilizados como dados de entrada para a rede neural, enquanto o valor-alvo é representado em vermelho. Com base nesse valor-alvo, é possível realizar análises métricas para avaliar a eficácia da rede. O esquema a seguir ilustra como o conjunto de dados é organizado após o processo de janelamento. Observa-se que os valores previstos não são usados como entrada para a previsão de passos futuros; em vez disso, a previsão é feita considerando apenas um ponto no futuro.</p>
+<p><img src="src/static/Preparcao_base_de_dados.png" alt="Alt text" title="Dataset"></p>
+<p>A utilização do MinMaxScaler, como a terceira técnica de pré-processamento, desempenha um papel fundamental na normalização dos dados, seguindo a segmentação das séries temporais e a aplicação de janelamento. O MinMaxScaler permite a transformação dos valores do conjunto de dados para um intervalo predefinido, comumente entre 0 e 1, preservando a distribuição dos dados e minimizando diferenças de escala entre as variáveis. Esta técnica é vital para garantir uma uniformidade na escala das variáveis, favorecendo algoritmos sensíveis à variação de escala. Abaixo é apresentada a equação de normalização empregada.</p>
+<p><img src="src/static/minMaxScaler.png" alt="Alt text" title="Dataset"></p>
+<p>Por fim, além do MinMaxScaler, a etapa subsequente envolve a segregação dos dados em conjuntos de treino e teste. Essa divisão é essencial para avaliar o desempenho do modelo, treinando-o com 80% dos dados e reservando os últimos 20% para testar a capacidade de generalização do modelo para novos dados não vistos durante o treinamento, mantendo a ordem temporal.</p>
+<p><img src="src/static/Split_Train_Test_normalizados.png" alt="Alt text" title="Dataset"></p>
+<p>A figura acima ilustra o processo de segregação dos dados em conjuntos de treino e teste, utilizando o MinMaxScaler para normalização e seguindo a ordem temporal. Nessa representação, os dados empregados no conjunto de teste estão destacados em azul, enquanto os dados de treino são marcados em preto. O ponto de corte entre os dados de treino e teste é claramente indicado por uma linha tracejada vermelha. Essa demarcação temporal é essencial para preservar a sequência cronológica dos dados e garantir que o modelo seja avaliado em dados não vistos e futuros.</p>
+<h4 id="resultados">Resultados</h4>
+<p>Nesta seção, apresentamos os resultados obtidos por meio da aplicação de diferentes arquiteturas de redes neurais recorrentes do tipo LSTM para a previsão da produção de óleo. Inicialmente, a primeira tentativa de previsão foi realizada exclusivamente utilizando a série temporal com informações da produção de óleo. À medida que este estudo progrediu, foram conduzidos testes adicionais explorando a previsão com o uso de múltiplas variáveis, embora, até o momento, estes testes estejam em fase inicial. Este trabalho destaca os resultados, tanto das tentativas iniciais que consideraram apenas a série temporal univariada quanto das investigações mais recentes que envolveram a inclusão de múltiplas variáveis para aprimorar as previsões da produção de óleo.</p>
+<h5 id="arquitetura-da-rede-neural">Arquitetura da Rede Neural</h5>
+<p>A arquitetura e a escolha dos hiperparâmetros são fundamentais para o desempenho eficaz de uma rede LSTM. A configuração adequada, incluindo o número de camadas LSTM, o tamanho das células de memória, a taxa de aprendizado e outros hiperparâmetros, impacta diretamente a capacidade da rede em aprender e capturar relações temporais complexas nos dados. A seleção criteriosa desses parâmetros e a arquitetura apropriada são essenciais para otimizar a capacidade da LSTM em modelar padrões temporais, garantindo uma generalização eficaz para dados futuros e, consequentemente, aprimorando a qualidade das previsões. Portanto, compreender e otimizar esses elementos são cruciais para alcançar um desempenho eficaz e preciso na previsão com redes LSTM.</p>
+<p>Neste trabalho, o framework <a href="https://optuna.org/">Optuna</a> foi utilizado para otimizar os hiperparâmetros da rede. Para comparação, foi criado um modelo 'vanilla', um modelo simples que contém diferentes tipos de camadas que podem estar presentes em uma LSTM. Em seguida, o Optuna foi empregado gradualmente para liberar os hiperparâmetros, fornecendo uma compreensão mais aprofundada das otimizações realizadas.</p>
+<p>A figura abaixo apresenta o resultado da rede considerada 'vanilla', seguido pela arquitetura dessa rede:</p>
+<p><img src="src/static/previsoes/Modelos_Vanila/300epocas_vanila.png" alt="Alt text" title="Dataset"></p>
+<p>Código com a arquitetura da rede:</p>
+<pre>
+model_LSTM = Sequential()
+model_LSTM.reset_states()
+model_LSTM.add(LSTM(n_neurons, input_shape=(time_steps, input_dim), return_sequences=True))
+model_LSTM.add(LSTM(n_neurons, return_sequences=True))
+model_LSTM.add(Dropout(0.2))
+model_LSTM.add(LSTM(n_neurons, return_sequences=True))
+model_LSTM.add(LSTM(n_neurons, return_sequences=False))
+model_LSTM.add(Dense(output_dim))
+model_LSTM.compile(loss='mean_squared_error', optimizer='adam', metrics=['mean_absolute_error'])
+</pre>
+<p>Neste resultado, observamos que ao aplicar a rede aos dados de testes, as previsões exibiram uma série de oscilações acentuadas, caracterizadas por picos intermitentes. Esses picos representam valores atípicos. Além disso, é importante ressaltar que, apesar da boa performance da rede nos dados de teste, é crucial avaliar o risco de overfitting. A aparente precisão das previsões nos dados de teste pode indicar um ajuste excessivo da rede aos dados de treino, o que pode resultar em uma capacidade reduzida de generalização para novos conjuntos de dados. A próxima seção apresentará os resultados das otimizações realizadas, buscando melhorar a capacidade de generalização da rede e reduzir possíveis problemas de overfitting.</p>
+<h5 id="otimiza%C3%A7%C3%A3o-dos-hyperpar%C3%A2metros-optuna">Otimização dos hyperparâmetros (Optuna)</h5>
+<p>A tabela a seguir apresenta os parâmetros utilizados em cada um dos experimentos realizados, bem como o valor do erro quadrático médio (MSE) para o conjunto de treino e de teste. O experimento 0 refere-se ao modelo 'vanilla' mencionado anteriormente. Por outro lado, o experimento 1 segue a mesma arquitetura, porém com um maior número de épocas de treinamento, com o intuito de investigar o impacto dessa variável na performance da rede.</p>
+<p><img src="src/static/previsoes/Otimizacoes/Tabela_de_otimizacoes.png" alt="Alt text" title="Dataset"></p>
+<p>Para facilitar o processo de análise de cada modelo, foi criado o gráfico abaixo. Neste gráfico, os pontos azuis representam o erro quadrático médio dos dados de treino, enquanto os pontos alaranjados representam os resultados para os dados de teste. As linhas tracejadas foram geradas assumindo que a previsão do ponto futuro é sempre o valor do último ponto do conjunto de dados. Resultados mais interessantes são aqueles que exibem um erro menor quando aplicados aos dados de teste em comparação com o valor tracejado. Além disso, bons modelos não necessariamente apresentam erros significativamente menores quando aplicados aos dados de treino, pois um erro muito baixo pode indicar overtraining.</p>
+<p><img src="src/static/previsoes/Resultado_comparativo_grafico_dos_modelos_limpo.png" alt="Alt text" title="Dataset"></p>
+<p>Com base nisso, destacam-se os seguintes modelos:</p>
+<p><img src="src/static/previsoes/Resultado_comparativo_grafico_dos_modelos.png" alt="Alt text" title="Dataset"></p>
+<p>Os experimentos 2, 6 e 7 são exemplos de análises que demonstram baixo erro nos dados de teste, juntamente com erros similares nos dados de treino. A seguir, serão apresentados os resultados gráficos de cada um desses experimentos.</p>
+<h5 id="experimento-2">Experimento 2</h5>
+<p>Arquitetura da rede:</p>
+<table>
+<thead>
+<tr>
+<th>Experimento</th>
+<th>Tamanho do Janelamento</th>
+<th>Num Neurônios</th>
+<th>Num Camadas</th>
+<th>Épocas de Treinamento</th>
+<th>Taxa de Aprendizado</th>
+<th>Possui Dropout</th>
+<th>Taxa do Dropout</th>
+<th>Utilizou OPTUNA</th>
+<th>Tamanho do Batch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>14</td>
+<td>50</td>
+<td>2</td>
+<td>300</td>
+<td>0.0001</td>
+<td>Não</td>
+<td>0.0</td>
+<td>Sim</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><img src="src/static/previsoes/Otimizacoes/Optuna_num_layer.png" alt="Alt text" title="Dataset"></p>
+<h5 id="experimento-6">Experimento 6</h5>
+<p>Arquitetura da rede:</p>
+<table>
+<thead>
+<tr>
+<th>Experimento</th>
+<th>Tamanho do Janelamento</th>
+<th>Num Neurônios</th>
+<th>Num Camadas</th>
+<th>Épocas de Treinamento</th>
+<th>Taxa de Aprendizado</th>
+<th>Possui Dropout</th>
+<th>Taxa do Dropout</th>
+<th>Utilizou OPTUNA</th>
+<th>Tamanho do Batch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>7</td>
+<td>249</td>
+<td>2</td>
+<td>500</td>
+<td>0.00025038</td>
+<td>Não</td>
+<td>0.0</td>
+<td>Sim</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p><img src="src/static/previsoes/Otimizacoes/Optuna_num_layer_Units_learning_window.png" alt="Alt text" title="Dataset"></p>
+<h5 id="experimento-7">Experimento 7</h5>
+<p>Arquitetura da rede:</p>
+<table>
+<thead>
+<tr>
+<th>Experimento</th>
+<th>Tamanho do Janelamento</th>
+<th>Num Neurônios</th>
+<th>Num Camadas</th>
+<th>Épocas de Treinamento</th>
+<th>Taxa de Aprendizado</th>
+<th>Possui Dropout</th>
+<th>Taxa do Dropout</th>
+<th>Utilizou OPTUNA</th>
+<th>Tamanho do Batch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>24</td>
+<td>250</td>
+<td>2</td>
+<td>500</td>
+<td>0.00015406</td>
+<td>Sim</td>
+<td>0.11099</td>
+<td>Sim</td>
+<td>24</td>
+</tr>
+</tbody>
+</table>
+<p><img src="src/static/previsoes/Otimizacoes/Optuna_num_layer_Units_learning_window_dropout_500epocas.png" alt="Alt text" title="Dataset"></p>
+<h4 id="conclus%C3%B5es">Conclusões</h4>
+<p>Com base nos resultados apresentados nesse trabalho pode-se concluir que:</p>
+<ul>
+<li>
+<p>Modelos de LSTM são capazes de prever o comportamento da curva de produção de óleo;</p>
+</li>
+<li>
+<p>A escolha correta dos hiperparâmetros da LSTM é fundamental para se obter um bom ajuste nas previsões;</p>
+</li>
+<li>
+<p>O Optuna pode ser utilizado para auxiliar o processo de otimização dos hiperparâmetros;</p>
+</li>
+<li>
+<p>Não necessáriamente redes com mais camadas são redes mais eficientes.</p>
+</li>
+</ul>
+<h4 id="pr%C3%B3ximos-passos">Próximos passos</h4>
+<p>Como futuras contribuições esse trabalho indica:</p>
+<ul>
+<li>
+<p>Fazer uma análise das outras séries de dados presentes no dataset a fim de introduzir outras séries para auxiliar as previsões;</p>
+</li>
+<li>
+<p>Fazer uma análise comparativa entre outros tipo de rede neurais recursivas a fim de entender qual rede consegue prever com mais eficiência a serie de produção;</p>
+</li>
+<li>
+<p>Fazer a análise das diferentes redes considerando outras séries temporais no processo;</p>
+</li>
+<li>
+<p>Tentar prever outras variáveis, tais como a produção de gás e a produção de água.</p>
+</li>
+</ul>
+<h4 id="refer%C3%AAncias">Referências</h4>
+<p>I - <a href="https://www.bp.com/content/dam/bp/business-sites/en/global/corporate/pdfs/energy-economics/energy-outlook/bp-energy-outlook-2016.pdf">OUTLOOK, BP Energy. 2035. 2015.</a></p>
+<p>II - <a href="https://www.pnas.org/doi/10.1073/pnas.79.8.2554">Hopfield,J J.  Neural networks and physical systems with emergent collective computational abilities. 1982. URL: https://www.pnas.org/doi/10.1073/pnas.79.8.2554</a></p>
+<p>III - <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">OLAH, Christopher. Understanding lstm networks. 2015. </a></p>
+<p>IV - <a href="https://optuna.org/">Takuya Akiba, Shotaro Sano, Toshihiko Yanase, Takeru Ohta, and Masanori Koyama. 2019. Optuna: A Next-generation Hyperparameter Optimization Framework. In KDD.</a></p>
+<hr>
+<p>Matrícula: 212.100.348</p>
+<p>Pontifícia Universidade Católica do Rio de Janeiro</p>
+<p>Curso de Pós Graduação <em>Business Intelligence Master</em></p>
+
+</body>
+</html>
